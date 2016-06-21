@@ -1,0 +1,61 @@
+﻿<script src="../Scripts/jquery-3.0.0.js"></script>
+<script src="../MyScripts/main.js"></script>
+
+<link href="../Content/Skeleton/normalize.css" rel="stylesheet" />
+<link href="../Content/Skeleton/skeleton.css" rel="stylesheet" />
+
+<link href="../Content/Site.css" rel="stylesheet" />
+
+<link href="../Content/BackgroundColors.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        GitSearch.GitHubSearch.Init();
+    });
+</script>
+
+<div class="input-append">
+
+    <input type="text" id="SearchTxt" class="input-medium search-query" placeholder="Search GitHub Repos" value="" style="margin: 10px;">
+    <button type="button" id="SearchButton" class="button-primary" onclick="GitSearch.GitHubSearch.Search()"><i class="icon-search">Search!</i></button>
+    <br />
+</div>
+
+<div id="Result" class="Contributors">
+
+
+    <div class="container" style="float:left; margin-left: 10px;">
+
+        <div class="row">
+            <div class="three columns">
+                <h5>Name</h5>
+            </div>
+            <div class="three columns">
+                <h5>Owner</h5>
+            </div>
+            <div class="three columns">
+                <h5>Watchers</h5>
+            </div>
+            <div class="three columns">
+                <h5>Forks</h5>
+            </div>
+        </div>
+
+        <div class="row" id="dataRow">
+            <div class="three columns">
+
+            </div>
+            <div class="three columns">
+
+            </div>
+            <div class="three columns">
+
+            </div>
+            <div class="three columns">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
