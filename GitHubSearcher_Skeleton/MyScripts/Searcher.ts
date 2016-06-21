@@ -52,7 +52,7 @@ namespace GitSearch {
                     var pressedRepo = item.url;
 
                     var html = "";
-                    var dataRow = $("#dataRow");
+                    var dataRow = $("#tbody");
 
 
                     //var tableRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
@@ -68,28 +68,13 @@ namespace GitSearch {
                     //var newText = document.createTextNode('New row');
                     //newCell.appendChild(newText);
 
-                    html += "<a href='http://localhost:46206/Views/DisplayView.html" + "?" + pressedRepo + "'</a>";
-                    html += "<div class='three columns'>";
-                    html += repoName;
-                    html += "</div>";
-                    html += "<div class='three columns'>";
-                    html += repoOwner;
-                    html += "</div>";
-                    html += "<div class='three columns'>";
-                    html += repoWatchers;
-                    html += "</div>";
-                    html += "<div class='three columns'>";
-                    html += repoForks;
-                    html += "</div>";
+                    html += "<tr><a href='http://localhost:46206/Views/DisplayView.html'" + "?" + pressedRepo + "</a>";
+                      html += "<td>" + repoName + "</td>";
+                      html += "<td>" + repoOwner + "</td>";
+                      html += "<td>" + repoWatchers + "</td>";
+                      html += "<td>" + repoForks + "</td>";
+                    html += "</tr>";
 
-
-                    //html += "<a href='http://localhost:46206/Views/DisplayView.html" + "?" + pressedRepo + "'</a>";
-                    //html += "<tr>";
-                    //html += "<td>" + repoName + "</td>";
-                    //html += "<td>" + repoOwner + "</td>";
-                    //html += "<td>" + repoWatchers + "</td>";
-                    //html += "<td>" + repoForks + "</td>";
-                    //html += "</tr>";
                     // append to <tbody>
                     dataRow.append(html);
                 });
