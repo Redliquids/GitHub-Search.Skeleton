@@ -5,7 +5,6 @@
 <link href="../Content/Skeleton/skeleton.css" rel="stylesheet" />
 
 <link href="../Content/Site.css" rel="stylesheet" />
-
 <link href="../Content/BackgroundColors.css" rel="stylesheet" />
 
 <script>
@@ -14,14 +13,48 @@
     });
 </script>
 
-<div id="Information">
+<div id="Title" style="margin: 20px;">
+    <img src="../Content/Images/mark-github.png" style="width: 120px; height: 60px;" />
+    <h3 id="repoTitle"></h3>
+    <br />
+</div>
+
+<div id="Information" style="margin: 20px; width: 300px; float:left;">
     <h3>Information</h3>
+    <!--profile picture?-->
+    <!--repo owner-->
 </div>
 
-<div id="Contributors" class="ContributorsBox">
-    <h3>Contributors</h3>
+<div id="Contributors" class="ContributorsBox" style="margin: 20px; width: 300px; float:left;">
+
+    <table class="u-full-width" id="ContributorsTable" style="width: 300px; float:left;">
+        <thead>
+            <tr>
+                <th>Contributors</th>
+            </tr>
+        </thead>
+        <tbody id="Contributorstbody">
+            <!--<tr>
+                <td>Contributors</td>
+            </tr>-->
+        </tbody>
+    </table>
+
 </div>
 
-<div id="OpenIssues" class="OpenIssuesClass">
-    <h3>Open Issues</h3>
+<div id="OpenIssues" class="OpenIssuesClass" style="margin: 20px; width: 300px; float:left;">
+
+    <table class="u-full-width" id="ContributorsTable" style="width: 300px; float:left;">
+        <thead>
+            <tr>
+                <th>Open Issues</th>
+            </tr>
+        </thead>
+        <tbody id="Issuestbody">
+            <!--<tr>
+                <td>Contributors</td>
+            </tr>-->
+        </tbody>
+    </table>
+
 </div>

@@ -11,31 +11,45 @@ function GetRepoData() {
 
         var RepoName = data.full_name; // Title
         var RepoOwner = data.owner.login;
+        var RepoOwnerPic = data.owner.avatar_url;
+        console.log(RepoOwnerPic);
         var RepoForkCount = data.forks_count;
         var RepoWatchersCount = data.watchers_count;
         var RepoLanguage = data.language;
         var RepoSubscribers = data.subscribers_count;
         var RepoContributorsUrl = data.contributors_url; // This will be used to get the data on the contributors
 
-        var Information = $("#Information");// Selector
+        $("repoTitle").text = RepoName;
 
+        var Information = $("#Information");// Selector
 
         var htmlInfo = "";
 
-        htmlInfo += RepoName;
-
-        htmlInfo += RepoName;
-
-        htmlInfo += RepoOwner;
-
+        htmlInfo += '<div>';
+        htmlInfo += '<strong>Owner: </strong>';
+        htmlInfo += '<img src=' + '"' + RepoOwnerPic + '">';
+        htmlInfo += '<strong> ' + RepoOwner + '</strong>';
+        htmlInfo += '<div>';
+        htmlInfo += '<strong>Forks: </strong>';
         htmlInfo += RepoForkCount;
-
+        htmlInfo += '</div>';
+        htmlInfo += '<div>';
+        htmlInfo += '<strong>Watchers: </strong>';
         htmlInfo += RepoWatchersCount;
-
-        htmlInfo += RepoLanguage;
-
+        htmlInfo += '</div>';
+        htmlInfo += '<div>';
+        htmlInfo += '<strong>Subscribers: </strong>';
         htmlInfo += RepoSubscribers;
-
+        htmlInfo += '</div>';
+        htmlInfo += '<div>';
+        htmlInfo += '<strong>Language: </strong>';
+        htmlInfo += RepoLanguage;
+        htmlInfo += '</div>';
+        htmlInfo += '<div>';
+        //htmlInfo += '<strong>Issues: </strong>';
+        //htmlInfo += 
+        htmlInfo += '</div>';
+        htmlInfo += '<div>';
 
         Information.html(htmlInfo);
 
@@ -48,19 +62,21 @@ function GetRepoData() {
                 var userPic = Informaion.avatar_url;
                 var userLink = Informaion.url;
 
-                var Contributors = $("#Contributors");//Selector
-                var htmlContributors = "";
-                htmlContributors += "<div class='Contributors clearfix'>";
-                htmlContributors += "<a href='" + userLink + "'</a>";// Link to the user you clicked
-                htmlContributors += "<img src='" + userPic + "'/>";
-                htmlContributors += "<div>";
-                htmlContributors += "   <div>";
-                htmlContributors += "<strong>" + user + "</strong>";
-                //htmlContributors += user;
-                htmlContributors += "   </div>";
-                htmlContributors += "</div>";
+                var Contributorsbody = $("#Contributorstbody");//Selector
+                var appendConotributors = "";
 
-                Contributors.append(htmlContributors);
+                appendConotributors = "<tr>";
+                    appendConotributors += "<td>";
+                        appendConotributors += "<img src='" + userPic + "'"+ 'style="width:25px;"' +"/>";
+                    appendConotributors += "</td>";
+
+                    appendConotributors += "<td>";
+                        //appendRow += "<a href='" + userLink + ">";
+                        appendConotributors += user;
+                        //appendRow += "</a>";
+                    appendConotributors += "</td>";
+                appendConotributors += "</tr>";
+                Contributorsbody.append(appendConotributors);
             });
         });
         // Inside first $.getJSON
@@ -73,7 +89,6 @@ function GetRepoData() {
         //// We have to remove: {/number}                                                                ////
         /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        console.log("NOT Trimmed url: " + RepoIssues);
         var split = RepoIssues.split("{");
         var RepoIssuesTrimmed = split[0];
 
@@ -82,21 +97,19 @@ function GetRepoData() {
             // each issue. Display: object.title
             $.each(object, function (index, Issue) {
 
+                //issueLink
                 var issueTitle = Issue.title;
-                var issueLink = "placeholder";
-                var htmlIssues = "";
 
-                var Issues = $("#OpenIssues");//Selector
-                var htmlIssues = "";
-                htmlIssues += "<div class='IssuesBox clearfix'>";
-                htmlIssues += "<a href='" + issueLink + "'</a>";// Link to the user you clicked
-                htmlIssues += "<div>";
-                htmlIssues += "   <div>";
-                htmlIssues += "<strong>" + issueTitle + "</strong>";
-                htmlIssues += "   </div>";
-                htmlIssues += "</div>";
+                var IssuesSelector = $("#Issuestbody");
+                var issuehtml = "";
 
-                Issues.append(htmlIssues);
+                issuehtml += "<tr>";
+                issuehtml += "<td>";
+                issuehtml += issueTitle;
+                issuehtml += "</td>";
+                issuehtml += "</tr>";
+
+                IssuesSelector.append(issuehtml);
             });
         });
         //Inside Function

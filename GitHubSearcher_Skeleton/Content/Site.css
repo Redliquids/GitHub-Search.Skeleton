@@ -1,18 +1,13 @@
-﻿table tr td a:hover {
-    display: block;
-    height: 100%;
-    width: 100%;
+﻿body {
+    /*background-color: black;*/
 }
 
-table tr td {
-    padding-left: 0;
-    padding-right: 0;
+#tbody tr:hover {
+    background-color: lightskyblue;
 }
 
-.clickable-row {
-
-}
-
-.clickable-row a:hover {
-    background-color: lightblue;
+#Information img {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
 }

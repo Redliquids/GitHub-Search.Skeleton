@@ -54,29 +54,21 @@ namespace GitSearch {
                     var html = "";
                     var dataRow = $("#tbody");
 
+                    // I'd like to make the whole table row clickable.
 
-                    //var tableRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-                    //console.log(tableRef);
+                    //var ClickedRepo = "<a href=http://localhost:46206/Views/DisplayView.html" + "?" + pressedRepo + "</a>";
+                    //console.log(ClickedRepo);
 
-                    //// Insert a row in the table at the last row
-                    //var newRow = tableRef.insertRow(tableRef.rows.length);
-
-                    //// Insert a cell in the row at index 0
-                    //var newCell = newRow.insertCell(0);
-
-                    //// Append a text node to the cell
-                    //var newText = document.createTextNode('New row');
-                    //newCell.appendChild(newText);
-
-                    html += "<tr><a href='http://localhost:46206/Views/DisplayView.html'" + "?" + pressedRepo + "</a>";
-                      html += "<td>" + repoName + "</td>";
+                    html += "<tr>";
+                    //the link works but i'd like the whole row to be a clickable link
+                    html += "<td><a href=http://localhost:46206/Views/DisplayView.html" + "?" + pressedRepo + ">" + repoName + "</a></td>";
                       html += "<td>" + repoOwner + "</td>";
                       html += "<td>" + repoWatchers + "</td>";
                       html += "<td>" + repoForks + "</td>";
                     html += "</tr>";
 
                     // append to <tbody>
-                    dataRow.append(html);
+                    dataRow.html(html);
                 });
             });
         }

@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\mark-github.png" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Skeleton.cshtml" />
     <Content Include="Views\Shared\Skeleton.Master" />
