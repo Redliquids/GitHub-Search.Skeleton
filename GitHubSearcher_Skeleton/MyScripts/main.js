@@ -52,7 +52,7 @@ var GitSearch;
                     html += "<td>" + repoForks + "</td>";
                     html += "</tr>";
                     // append to <tbody>
-                    dataRow.html(html);
+                    dataRow.append(html);
                 });
             });
         };

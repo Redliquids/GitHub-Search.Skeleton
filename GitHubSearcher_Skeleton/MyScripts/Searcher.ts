@@ -68,7 +68,7 @@ namespace GitSearch {
                     html += "</tr>";
 
                     // append to <tbody>
-                    dataRow.html(html);
+                    dataRow.append(html);
                 });
             });
         }
