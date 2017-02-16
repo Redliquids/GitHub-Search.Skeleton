@@ -97,7 +97,6 @@ function GetRepoData() {
             // each issue. Display: object.title
             $.each(object, function (index, Issue) {
 
-                //issueLink
                 var issueTitle = Issue.title;
 
                 var IssuesSelector = $("#Issuestbody");

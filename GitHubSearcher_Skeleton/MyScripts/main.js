@@ -7,22 +7,15 @@ var GitSearch;
         GitHubSearch.Init = function () {
             var search = document.getElementById("SearchTxt");
             search.addEventListener("keydown", function (e) {
-                //console.log(e.keyCode);
                 if (e.keyCode === 13) {
                     GitSearch.GitHubSearch.Search();
                     console.log("Functions Loaded.");
                 }
             });
-            var button = $("#SearchButton"); // actually useless.
-            button.click(GitHubSearch.Search); // Couldn't get this to work...
         };
-        //static clearSearch() {
-        //    var container = $("Result");
-        //    document.getElementById("Result").innerHTML = "";
-        //    //container.empty(); jQuery failed me D:
-        //}
         GitHubSearch.Search = function () {
-            //GitHubSearch.clearSearch();
+            // Clear past search results.
+            document.getElementById("tbody").innerHTML = "";
             var input = $("#SearchTxt").val();
             console.log("Searching...");
             console.log(input);
@@ -37,15 +30,10 @@ var GitSearch;
                     var repoForks = item.forks;
                     var repoWatchers = item.watchers;
                     var repoUrl = item.html_url; // don't forget this
-                    //html += "<div class='RepoBox clearfix'>";
                     var pressedRepo = item.url;
                     var html = "";
                     var dataRow = $("#tbody");
-                    // I'd like to make the whole table row clickable.
-                    //var ClickedRepo = "<a href=http://localhost:46206/Views/DisplayView.html" + "?" + pressedRepo + "</a>";
-                    //console.log(ClickedRepo);
-                    html += "<tr>";
-                    //the link works but i'd like the whole row to be a clickable link
+                    html += "<tr  class='searchResults'";
                     html += "<td><a href=http://localhost:46206/Views/DisplayView.html" + "?" + pressedRepo + ">" + repoName + "</a></td>";
                     html += "<td>" + repoOwner + "</td>";
                     html += "<td>" + repoWatchers + "</td>";
@@ -138,7 +126,6 @@ function GetRepoData() {
         $.getJSON(RepoIssuesTrimmed, function (object) {
             // each issue. Display: object.title
             $.each(object, function (index, Issue) {
-                //issueLink
                 var issueTitle = Issue.title;
                 var IssuesSelector = $("#Issuestbody");
                 var issuehtml = "";
